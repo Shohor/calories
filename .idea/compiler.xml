@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="calories" target="1.5" />
+      <module name="calories" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
