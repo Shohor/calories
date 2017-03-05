@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
@@ -8,17 +8,23 @@
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="navbar-header navbar-brand"><fmt:message key="app.title"/></div>
+        <div class="navbar-header navbar-brand"><spring:message code="app.title"/></div>
         <div class="navbar-collapse collapse">
-            <form:form class="navbar-form navbar-right" role="form" action="spring_security_check" method="post">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control" name='username'>
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control" name='password'>
-                </div>
-                <button type="submit" class="btn btn-success"><fmt:message key="app.login"/></button>
-            </form:form>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form:form class="navbar-form" role="form" action="spring_security_check"
+                               method="post">
+                        <div class="form-group">
+                            <input type="text" placeholder="Email" class="form-control" name='username'>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" class="form-control" name='password'>
+                        </div>
+                        <button type="submit" class="btn btn-success"><spring:message code="app.login"/></button>
+                    </form:form>
+                </li>
+                <jsp:include page="fragments/lang.jsp"/>
+            </ul>
         </div>
     </div>
 </div>
@@ -32,7 +38,7 @@
         </c:if>
         <c:if test="${not empty message}">
             <div class="message">
-                <fmt:message key="${message}"/>
+                <spring:message code="${message}"/>
             </div>
         </c:if>
         <p>
@@ -41,8 +47,8 @@
 
         <p>Admin login: <b>admin@gmail.com / admin</b></p>
 
-        <p><a class="btn btn-primary btn-lg" role="button" href="register"><fmt:message key="app.register"/> &raquo;</a></p>
-        <p>Стек технологий: <a href="http://projects.spring.io/spring-security/">Spring Security</a>,
+        <p><a class="btn btn-primary btn-lg" role="button" href="register"><spring:message code="app.register"/> &raquo;</a></p>
+        <p>Stack of technologies: <a href="http://projects.spring.io/spring-security/">Spring Security</a>,
             <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring MVC</a>,
             <a href="http://projects.spring.io/spring-data-jpa/">Spring Data JPA</a>,
             <a href="http://spring.io/blog/2014/05/07/preview-spring-security-test-method-security">Spring Security
@@ -67,14 +73,12 @@
 </div>
 <div class="container">
     <div class="lead">
-        &nbsp;&nbsp;&nbsp;<a href="https://github.com/JavaOPs/topjava">Java Enterprise проект</a> с
-        регистрацией/авторизацией и интерфейсом на основе ролей (USER, ADMIN).
-        Администратор может создавать/редактировать/удалять/пользователей, а пользователь - управлять своим
-        профилем и данными (день, еда, калории) через UI (по AJAX) и по REST интерфейсу с базовой авторизацией.
-        Возможна фильтрация данных по датам и времени, при этом цвет записи таблицы еды зависит от того, превышает ли
-        сумма
-        калорий за день норму (редактируемый параметр в профиле пользователя).
-        Весь REST интерфейс покрывается JUnit тестами, используя Spring MVC Test и Spring Security Test.
+        &nbsp;&nbsp;&nbsp;<a href="https://github.com/JavaOPs/topjava">Java Enterprise project</a> with registration / authorization and a role-based interface (USER, ADMIN).
+                The administrator can create / edit / delete / users, and the user can manage his
+                Profile and data (day, food, calories) through UI (AJAX) and REST interface with basic authorization.
+                It is possible to filter data by date and time, while the color of the food table entry depends on whether it exceeds
+                amount calories per day rate (an editable parameter in the user profile).
+                The entire REST interface is covered by JUnit tests using Spring MVC Test and Spring Security Test.
     </div>
 </div>
 <jsp:include page="fragments/footer.jsp"/>
