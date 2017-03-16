@@ -5,15 +5,7 @@ import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
 
-/**
- * User: gkislin
- * Date: 22.08.2014
- * <p>
- * Do not manipulate new (transient) entries in HashSet/HashMap without overriding hashCode
- * http://stackoverflow.com/a/39827962/548473
- *
- * @see org.springframework.data.jpa.domain.AbstractPersistable
- */
+
 @MappedSuperclass
 // http://stackoverflow.com/questions/594597/hibernate-annotations-which-is-better-field-or-property-access
 @Access(AccessType.FIELD)

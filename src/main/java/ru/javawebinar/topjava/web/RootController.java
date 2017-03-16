@@ -14,10 +14,7 @@ import ru.javawebinar.topjava.web.user.AbstractUserController;
 
 import javax.validation.Valid;
 
-/**
- * User: gkislin
- * Date: 22.08.2014
- */
+
 @Controller
 public class RootController extends AbstractUserController {
 

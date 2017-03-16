@@ -18,9 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static ru.javawebinar.topjava.Profiles.ACTIVE_DB;
 
-/**
- * User: gkislin
- */
+
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
         "classpath:spring/spring-db.xml"

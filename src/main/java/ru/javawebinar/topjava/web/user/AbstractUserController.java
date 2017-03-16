@@ -14,9 +14,7 @@ import javax.validation.ValidationException;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * User: gkislin
- */
+
 public abstract class AbstractUserController {
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
